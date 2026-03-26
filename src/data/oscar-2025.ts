@@ -41,7 +41,7 @@ export const oscarRecentWinners: OscarWinner[] = [
     category: "Best Supporting Actress",
     winner: "Amy Madigan",
     film: "Weapons",
-    posterUrl: "https://image.tmdb.org/t/p/w500/hYrjzCDWbwQhcBJIbZdU0ywfxPx.jpg",
+    posterUrl: "https://media-cache.cinematerial.com/p/500x/1ng4wqqm/weapons-movie-poster.jpg?v=1754041991",
   },
   {
     category: "Best Original Screenplay",
@@ -59,7 +59,7 @@ export const oscarRecentWinners: OscarWinner[] = [
     category: "Best Animated Feature",
     winner: "Maggie Kang, Chris Appelhans & Michelle L.M. Wong",
     film: "KPop Demon Hunters",
-    posterUrl: "https://image.tmdb.org/t/p/w500/oHMEBOVZgEig7QjCdPOfm0iwZrl.jpg",
+    posterUrl: "https://m.media-amazon.com/images/M/MV5BNTBiYWJlMjQtOTIyMy00NTY4LWFhOWItOWZhNzc3NGMyMjc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
   },
   {
     category: "Best International Feature",
@@ -89,7 +89,7 @@ export const oscarRecentWinners: OscarWinner[] = [
     category: "Best Original Song",
     winner: "\"Golden\" — EJAE, Mark Sonnenblick & others",
     film: "KPop Demon Hunters",
-    posterUrl: "https://image.tmdb.org/t/p/w500/oHMEBOVZgEig7QjCdPOfm0iwZrl.jpg",
+    posterUrl: "https://m.media-amazon.com/images/I/81Mtr7elTnL._AC_UF894,1000_QL80_.jpg",
   },
   {
     category: "Best Sound",

@@ -8,7 +8,7 @@ import { oscarMovies, allYears, allGenres, categories, searchMovies } from "@/da
 
 export default function Browse() {
   const [searchParams] = useSearchParams();
-  const initialCategory = searchParams.get("category") || "Best Picture";
+  const initialCategory = searchParams.get("category") || "";
 
   const [query, setQuery] = useState("");
   const [selectedYear, setSelectedYear] = useState<string>("");
@@ -17,12 +17,12 @@ export default function Browse() {
   const [sortBy, setSortBy] = useState<"year" | "oscars" | "rating">("year");
   const [filtersOpen, setFiltersOpen] = useState(false);
 
-  const activeFilterCount = [selectedYear, selectedGenre, selectedCategory !== "Best Picture" ? selectedCategory : ""].filter(Boolean).length;
+  const activeFilterCount = [selectedYear, selectedGenre, selectedCategory].filter(Boolean).length;
 
   const clearFilters = () => {
     setSelectedYear("");
     setSelectedGenre("");
-    setSelectedCategory("Best Picture");
+    setSelectedCategory("");
     setSortBy("year");
     setQuery("");
   };

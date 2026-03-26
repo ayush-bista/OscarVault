@@ -125,7 +125,7 @@ export const oscarRecentWinners: OscarWinner[] = [
     category: "Best Documentary Feature",
     winner: "David Borenstein, Pavel Talankin, Helle Faber & Alžběta Karásková",
     film: "Mr. Nobody Against Putin",
-    posterUrl: "https://image.tmdb.org/t/p/w500/b4fKFOSFEEiNFmqxMsYdSCFk0R6.jpg",
+    posterUrl: "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/3/2026/03/16135430/mr-nobody-against-putin-poster-scaled.jpg",
   },
   {
     category: "Best Casting",

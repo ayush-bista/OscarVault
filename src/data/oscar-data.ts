@@ -247,7 +247,7 @@ export const oscarMovies: OscarMovie[] = [
     id: "mr-nobody-against-putin",
     title: "Mr. Nobody Against Putin",
     year: 2026,
-    posterUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ82SpAukM9M8f1KvAQvQ7mFrG26EUsMhPwCg&s",
+    posterUrl: "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/3/2026/03/16135430/mr-nobody-against-putin-poster-scaled.jpg",
     synopsis: "A gripping documentary following an ordinary Russian citizen's extraordinary stand against the Kremlin's authoritarian regime.",
     director: "David Borenstein",
     cast: [],

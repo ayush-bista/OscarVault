@@ -57,41 +57,41 @@ const WinnerCardContent = ({ item }: { item: typeof oscarRecentWinners[0] }) => 
         src={item.posterUrl}
         alt={item.film}
         loading="lazy"
-        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1"
+        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Category badge */}
-      <div className="absolute top-4 right-4 z-20">
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-white text-[10px] font-bold shadow-lg">
+      <div className="absolute top-3 right-3 z-20">
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-white text-[9px] font-black shadow-lg">
           <span className="text-primary">{categoryIcons[item.category as keyof typeof categoryIcons] || "🏆"}</span>
-          <span className="hidden sm:inline uppercase tracking-widest">{item.category}</span>
+          <span className="hidden sm:inline uppercase tracking-[0.1em]">{item.category}</span>
         </div>
       </div>
 
       {item.note && (
-        <div className="absolute top-4 left-4 z-20">
-          <div className="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-[8px] font-black uppercase tracking-[0.2em] shadow-lg">
+        <div className="absolute top-3 left-3 z-20">
+          <div className="px-2.5 py-1 rounded-xl bg-primary text-primary-foreground text-[8px] font-black uppercase tracking-[0.15em] shadow-lg">
             {item.note}
           </div>
         </div>
       )}
 
-      {/* Hover overlay details */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
-        <p className="text-xs text-primary font-bold uppercase tracking-widest mb-2">Winner</p>
-        <p className="text-sm text-white font-medium leading-tight">
-          {item.winner}
+      {/* Hover overlay details - Simplified */}
+      <div className="absolute inset-0 flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-all duration-500">
+        <p className="text-[9px] text-primary font-black uppercase tracking-[0.2em] mb-1.5">Honored For</p>
+        <p className="text-xs text-white font-bold leading-tight italic">
+          "{item.winner}"
         </p>
       </div>
     </div>
 
-    <div className="p-5">
-      <h3 className="font-display text-base font-bold text-foreground line-clamp-1 group-hover:gold-gradient-text transition-all duration-300">
+    <div className="p-4">
+      <h3 className="font-display text-sm font-bold text-foreground line-clamp-1 group-hover:gold-gradient-text transition-all duration-300">
         {item.film}
       </h3>
-      <div className="flex items-center justify-between mt-2">
-        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{item.category}</span>
+      <div className="flex items-center justify-between mt-1">
+        <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.15em] group-hover:text-primary/70 transition-colors">{item.category}</span>
       </div>
     </div>
   </>

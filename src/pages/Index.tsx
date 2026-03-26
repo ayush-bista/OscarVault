@@ -17,11 +17,7 @@ export default function Index() {
       <Navbar />
       <main>
         <HeroSection />
-        <div className="relative mt-[-10vh]">
-          {/* Section Divider with Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent z-20" />
-          <RecentWinners />
-        </div>
+        <RecentWinners />
         <FeaturedSection />
       </main>
       <Footer />

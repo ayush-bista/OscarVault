@@ -1,124 +1,101 @@
 import { Link } from "react-router-dom";
 import { Trophy, Play, Crown } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export default function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background with Parallax */}
-      <motion.div className="absolute inset-0" style={{ y }}>
+    <section className="relative min-h-[85vh] flex items-end pb-20 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
         <img
           src={heroBg}
           alt="Oscar ceremony"
-          className="w-full h-full object-cover scale-105 opacity-60"
+          className="w-full h-full object-cover"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent" />
-      </motion.div>
-
-      {/* Ambient Glows */}
-      <div className="absolute top-[10%] left-[-5%] w-[50%] h-[50%] bg-primary/10 blur-[160px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-8 md:px-12">
-        <motion.div style={{ opacity }} className="max-w-4xl">
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6"
           >
-            <Trophy className="w-3.5 h-3.5 text-primary animate-pulse" />
-            <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em]">Nearly a Century of Excellence</span>
+            <Trophy className="w-4 h-4 text-primary" />
+            <span className="text-sm text-primary font-medium">98 Years of Cinema Excellence</span>
           </motion.div>
 
           <motion.h1
-            className="font-display text-6xl md:text-8xl lg:text-[100px] font-bold leading-[0.9] mb-8 tracking-tighter"
+            className="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-5"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <span className="text-white/95">Where Cinema's</span>
+            <span className="text-foreground">The Ultimate</span>
             <br />
-            <span className="gold-gradient-text filter drop-shadow-[0_0_30px_rgba(212,175,55,0.2)]">Legacies Live</span>
+            <span className="gold-gradient-text">Oscar Archive</span>
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground/80 max-w-2xl mb-12 leading-relaxed font-medium"
+            className="text-base md:text-lg text-muted-foreground max-w-xl mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Journey through the definitive archive of Academy Award winners. From the silent era's pioneers to today's visionaries—every statuette tells a story of monumental achievement.
+            Discover every Academy Award winner. From golden-age classics to modern masterpieces — explore, compare, and relive cinema history.
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap items-center gap-5"
+            className="flex flex-wrap items-center gap-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
           >
             <Link
               to="/browse"
-              className="group relative inline-flex items-center gap-3 px-10 py-4.5 rounded-2xl bg-primary text-primary-foreground font-black text-xs uppercase tracking-widest transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_-10px_rgba(212,175,55,0.4)]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all duration-300 hover:shadow-[0_4px_30px_-8px_hsla(43,72%,53%,0.4)] hover:scale-[1.02]"
             >
-              <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Play className="w-4 h-4 fill-current" />
-              Explore Archive
+              <Play className="w-4 h-4" />
+              Explore Winners
             </Link>
             <Link
               to="/most-awarded"
-              className="group inline-flex items-center gap-3 px-10 py-4.5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-white font-black text-xs uppercase tracking-widest transition-all duration-500 hover:bg-white/10 hover:border-white/20"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-primary/20 bg-primary/10 text-primary font-semibold text-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
             >
-              <Crown className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-              Hall of Fame
+              <Crown className="w-4 h-4" />
+              Most Awarded Films
             </Link>
           </motion.div>
+        </div>
 
-          {/* Enhanced Stats Dashboard */}
-          <motion.div
-            className="flex flex-wrap items-center gap-x-16 gap-y-8 mt-20 border-t border-white/5 pt-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-          >
-            {[
-              { label: "Oscar Editions", value: "98" },
-              { label: "Golden Statuettes", value: "3,500+" },
-              { label: "Honored Crafts", value: "24" },
-            ].map((stat) => (
-              <div key={stat.label} className="group cursor-default">
-                <div className="font-display text-3xl md:text-4xl font-bold gold-gradient-text transition-all duration-500 group-hover:scale-110 group-hover:tracking-tight">
-                  {stat.value}
-                </div>
-                <div className="text-[10px] font-black text-muted-foreground/60 uppercase tracking-[0.3em] mt-3">{stat.label}</div>
+        {/* Stats row */}
+        <motion.div
+          className="flex gap-10 mt-14 border-t border-border/50 pt-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          {[
+            { label: "Years of Awards", value: "98" },
+            { label: "Categories", value: "21+" },
+            { label: "Films Honored", value: "3,500+" },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <div className="font-display text-2xl font-bold gold-gradient-text">
+                {stat.value}
               </div>
-            ))}
-          </motion.div>
+              <div className="text-xs text-muted-foreground mt-0.5">{stat.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        style={{ opacity }}
-      >
-        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
-      </motion.div>
     </section>
   );
 }

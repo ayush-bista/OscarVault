@@ -50,38 +50,105 @@ const cardVariant = {
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
 };
 
+const WinnerCardContent = ({ item }: { item: typeof oscarRecentWinners[0] }) => (
+  <>
+    <div className="relative aspect-[2/3] overflow-hidden">
+      <img
+        src={item.posterUrl}
+        alt={item.film}
+        loading="lazy"
+        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500" />
+
+      {/* Category badge */}
+      <div className="absolute top-4 right-4 z-20">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 text-white text-[10px] font-bold shadow-lg">
+          <span className="text-primary">{categoryIcons[item.category as keyof typeof categoryIcons] || "🏆"}</span>
+          <span className="hidden sm:inline uppercase tracking-widest">{item.category}</span>
+        </div>
+      </div>
+
+      {item.note && (
+        <div className="absolute top-4 left-4 z-20">
+          <div className="px-3 py-1.5 rounded-xl bg-primary text-primary-foreground text-[8px] font-black uppercase tracking-[0.2em] shadow-lg">
+            {item.note}
+          </div>
+        </div>
+      )}
+
+      {/* Hover overlay details */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
+        <p className="text-xs text-primary font-bold uppercase tracking-widest mb-2">Winner</p>
+        <p className="text-sm text-white font-medium leading-tight">
+          {item.winner}
+        </p>
+      </div>
+    </div>
+
+    <div className="p-5">
+      <h3 className="font-display text-base font-bold text-foreground line-clamp-1 group-hover:gold-gradient-text transition-all duration-300">
+        {item.film}
+      </h3>
+      <div className="flex items-center justify-between mt-2">
+        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{item.category}</span>
+      </div>
+    </div>
+  </>
+);
+
 export default function RecentWinners() {
   return (
-    <section className="py-20 relative">
+    <section className="py-24 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] rounded-full -z-10 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-primary/5 blur-[100px] rounded-full -z-10 -translate-x-1/2" />
+
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
-              <Sparkles className="w-3.5 h-3.5 text-primary" />
-              <span className="text-xs text-primary font-semibold uppercase tracking-[0.2em]">
-                98th Academy Awards
-              </span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md shadow-sm">
+                <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+                <span className="text-[10px] text-primary font-black uppercase tracking-[0.3em]">
+                  The 98th Academy Awards
+                </span>
+              </div>
             </div>
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-[1.1]">
-            Oscar Winners{" "}
-            <span className="gold-gradient-text">2026</span>
-          </h2>
-          <p className="text-sm text-muted-foreground mt-3 max-w-md">
-            Held on March 16, 2026 at the Dolby® Theatre, Hollywood — Hosted by Conan O'Brien
-          </p>
-        </motion.div>
+            <h2 className="font-display text-5xl md:text-6xl font-bold text-foreground leading-[1.1] tracking-tight">
+              Latest <span className="gold-gradient-text">Winners</span>
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-lg text-lg leading-relaxed">
+              Relive the magic of the 2026 Oscars. Explore the masterpieces that captured the world's imagination.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="hidden md:block"
+          >
+            <Link
+              to="/browse?year=2026"
+              className="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-secondary/50 border border-white/5 hover:border-primary/30 transition-all duration-500"
+            >
+              <span className="text-sm font-bold text-muted-foreground group-hover:text-primary transition-colors">View All 2026 Winners</span>
+              <Trophy className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+            </Link>
+          </motion.div>
+        </div>
 
         {/* Movie Grid */}
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8"
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -89,93 +156,17 @@ export default function RecentWinners() {
         >
           {oscarRecentWinners.map((item, i) => {
             const movieId = filmIdMap[item.film];
-            const cardClass = "card-cinematic group block cursor-pointer";
+            const cardClass = "card-cinematic group block relative rounded-2xl overflow-hidden bg-secondary/20 border border-white/5 hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]";
 
             return (
               <motion.div key={`${item.category}-${i}`} variants={cardVariant}>
                 {movieId ? (
                   <Link to={`/movie/${movieId}`} className={cardClass}>
-                    <div className="relative aspect-[2/3] overflow-hidden">
-                      <img
-                        src={item.posterUrl}
-                        alt={item.film}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                      {/* Category badge */}
-                      <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-bold">
-                        <Trophy className="w-3 h-3" />
-                        <span className="hidden sm:inline">
-                          {categoryIcons[item.category] || "🏆"}
-                        </span>
-                      </div>
-
-                      {item.note && (
-                        <div className="absolute top-3 left-3 px-2 py-1 rounded-full bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider">
-                          {item.note}
-                        </div>
-                      )}
-
-                      {/* Hover overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <p className="text-xs text-muted-foreground line-clamp-2">
-                          {item.winner}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-3">
-                      <h3 className="font-display text-sm font-semibold text-foreground line-clamp-1 group-hover:text-primary transition-colors duration-300">
-                        {item.film}
-                      </h3>
-                      <p className="text-xs text-primary mt-1 font-medium line-clamp-1">
-                        {item.category}
-                      </p>
-                    </div>
+                    <WinnerCardContent item={item} />
                   </Link>
                 ) : (
                   <div className={cardClass}>
-                    <div className="relative aspect-[2/3] overflow-hidden">
-                      <img
-                        src={item.posterUrl}
-                        alt={item.film}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                      {/* Category badge */}
-                      <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-bold">
-                        <Trophy className="w-3 h-3" />
-                        <span className="hidden sm:inline">
-                          {categoryIcons[item.category] || "🏆"}
-                        </span>
-                      </div>
-
-                      {item.note && (
-                        <div className="absolute top-3 left-3 px-2 py-1 rounded-full bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider">
-                          {item.note}
-                        </div>
-                      )}
-
-                      {/* Hover overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <p className="text-xs text-muted-foreground line-clamp-2">
-                          {item.winner}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="p-3">
-                      <h3 className="font-display text-sm font-semibold text-foreground line-clamp-1 group-hover:text-primary transition-colors duration-300">
-                        {item.film}
-                      </h3>
-                      <p className="text-xs text-primary mt-1 font-medium line-clamp-1">
-                        {item.category}
-                      </p>
-                    </div>
+                    <WinnerCardContent item={item} />
                   </div>
                 )}
               </motion.div>

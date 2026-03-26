@@ -1,4 +1,4 @@
-import { Trophy, TrendingUp, ArrowLeft, Award, Star, Sparkles, Crown, Medal } from "lucide-react";
+import { Trophy, TrendingUp, ArrowLeft, Award, Star, Sparkles, Crown, Medal, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -13,7 +13,7 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 };
 
 const rankBadgeColors = [

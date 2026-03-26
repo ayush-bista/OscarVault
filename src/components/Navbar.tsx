@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Search, Menu, X, Trophy, Crown, Clock, Swords, Home } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Home", path: "/", icon: Home },
@@ -79,7 +78,6 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="flex items-center gap-1">
-          <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-secondary transition-all duration-200"

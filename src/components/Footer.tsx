@@ -14,9 +14,11 @@ export default function Footer() {
             <Link to="/browse" className="hover:text-primary transition-colors">Browse</Link>
             <Link to="/timeline" className="hover:text-primary transition-colors">Timeline</Link>
             <Link to="/battle" className="hover:text-primary transition-colors">Battle</Link>
+            <Link to="/most-awarded" className="hover:text-primary transition-colors">Most Awarded</Link>
+
           </div>
           <p className="text-xs text-muted-foreground">
-            © 2024 OscarVault. All data for educational purposes.
+            © 2026 OscarVault. All data for educational purposes.
           </p>
         </div>
       </div>

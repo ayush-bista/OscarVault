@@ -6,18 +6,51 @@ import heroBg from "@/assets/hero-bg.jpg";
 export default function HeroSection() {
   return (
     <section className="relative min-h-[85vh] flex items-end pb-20 overflow-hidden">
-      {/* Background */}
+      {/* Background with Cinematic Treatment */}
       <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Oscar ceremony"
-          className="w-full h-full object-cover"
-          width={1920}
-          height={1080}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
+        <motion.div 
+          className="absolute inset-0"
+          initial={{ scale: 1.15, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 2.5, ease: "easeOut" }}
+        >
+          <img
+            src={heroBg}
+            alt="Oscar ceremony"
+            className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+          />
+        </motion.div>
+        
+        {/* Cinematic Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
+        
+        {/* Spotlight Effect */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,0.15)_0%,transparent_60%)]" />
       </div>
+
+      {/* Ambient Floating Glows */}
+      <motion.div 
+        className="absolute top-[20%] left-[10%] w-[30%] h-[30%] bg-primary/10 blur-[120px] rounded-full pointer-events-none"
+        animate={{ 
+          x: [0, 30, 0],
+          y: [0, -20, 0],
+          opacity: [0.5, 0.8, 0.5]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="absolute bottom-[10%] right-[10%] w-[40%] h-[40%] bg-primary/5 blur-[100px] rounded-full pointer-events-none"
+        animate={{ 
+          x: [0, -40, 0],
+          y: [0, 30, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">

@@ -290,7 +290,7 @@ export const oscarMovies: OscarMovie[] = [
     id: "the-brutalist",
     title: "The Brutalist",
     year: 2025,
-    posterUrl: "https://m.media-amazon.com/images/M/MV5BZDExZDIwMzktNzY4My00MTMyLWJhMjYtNGE5YTEyYjM3M2E2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/vXfH7W6Y0E8R0o1Y4u2A3B4C5D6.jpg",
     synopsis: "A visionary architect and Holocaust survivor immigrates to America, where he rebuilds his life while navigating ambition, love, and the American Dream.",
     director: "Brady Corbet",
     cast: ["Adrien Brody", "Felicity Jones", "Guy Pearce", "Joe Alwyn"],

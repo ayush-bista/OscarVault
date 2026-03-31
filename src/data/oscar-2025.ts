@@ -1,5 +1,3 @@
-import { posterUrls } from "./posters";
-
 export interface OscarWinner {
   category: string;
   winner: string;
@@ -13,61 +11,61 @@ export const oscarRecentWinners: OscarWinner[] = [
     category: "Best Picture",
     winner: "Adam Somner, Sara Murphy & Paul Thomas Anderson (Producers)",
     film: "One Battle After Another",
-    posterUrl: posterUrls["one-battle-after-another"],
+    posterUrl: "https://m.media-amazon.com/images/M/MV5BMzBkZmQ0NjMtNTZlMy00ZjdlLTg5ODUtYWFlNGM0YzE3MTg0XkEyXkFqcGc@._V1_.jpg",
   },
   {
     category: "Best Director",
     winner: "Paul Thomas Anderson",
     film: "One Battle After Another",
-    posterUrl: posterUrls["one-battle-after-another"],
+    posterUrl: "https://m.media-amazon.com/images/I/81UEVxki6VL.jpg",
   },
   {
     category: "Best Actor",
     winner: "Michael B. Jordan",
     film: "Sinners",
-    posterUrl: posterUrls["sinners"],
+    posterUrl: "https://pixieposters.co.uk/cdn/shop/files/sinners-movie-poster_8308ea3f-1682-4c29-a81f-119289f6cd06.webp?v=1748446165",
   },
   {
     category: "Best Actress",
     winner: "Jessie Buckley",
     film: "Hamnet",
-    posterUrl: posterUrls["hamnet"],
+    posterUrl: "https://posterspy.com/wp-content/uploads/2025/09/Hamnet_AlternativeMoviePoster_11x17po_300dpi_FINAL_-8mdb_JPG.jpg",
   },
   {
     category: "Best Supporting Actor",
     winner: "Sean Penn",
     film: "One Battle After Another",
-    posterUrl: posterUrls["one-battle-after-another"],
+    posterUrl: "https://i.redd.it/4jcc7counn9f1.jpeg",
   },
   {
     category: "Best Supporting Actress",
     winner: "Amy Madigan",
     film: "Weapons",
-    posterUrl: posterUrls["weapons"],
+    posterUrl: "https://media-cache.cinematerial.com/p/500x/1ng4wqqm/weapons-movie-poster.jpg?v=1754041991",
   },
   {
     category: "Best Original Screenplay",
     winner: "Ryan Coogler",
     film: "Sinners",
-    posterUrl: posterUrls["sinners"],
+    posterUrl: "https://m.media-amazon.com/images/I/81uTQDeL9SL.jpg",
   },
   {
     category: "Best Adapted Screenplay",
-    winner: "Chloe Zhao",
-    film: "Hamnet",
-    posterUrl: posterUrls["hamnet"],
+    winner: "Paul Thomas Anderson",
+    film: "One Battle After Another",
+    posterUrl: "https://m.media-amazon.com/images/I/81UEVxki6VL.jpg",
   },
   {
     category: "Best Animated Feature",
-    winner: "KPop Demon Hunters",
+    winner: "Maggie Kang, Chris Appelhans & Michelle L.M. Wong",
     film: "KPop Demon Hunters",
-    posterUrl: posterUrls["kpop-demon-hunters"],
+    posterUrl: "https://m.media-amazon.com/images/M/MV5BNTBiYWJlMjQtOTIyMy00NTY4LWFhOWItOWZhNzc3NGMyMjc2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
   },
   {
     category: "Best International Feature",
-    winner: "Sentimental Value",
+    winner: "Norway",
     film: "Sentimental Value",
-    posterUrl: posterUrls["sentimental-value"],
+    posterUrl: "https://spoilerfreereviews.com/wp-content/uploads/2026/01/MV5BM2Y5ZjNhZjEtOTQxNi00ZWU3LTk1MGQtYjE3MWZiNWUwNjc0XkEyXkFqcGc@._V1_.jpg",
   },
   {
     category: "Best Cinematography",
@@ -125,9 +123,9 @@ export const oscarRecentWinners: OscarWinner[] = [
   },
   {
     category: "Best Documentary Feature",
-    winner: "Mr. Nobody Against Putin",
+    winner: "David Borenstein, Pavel Talankin, Helle Faber & Alžběta Karásková",
     film: "Mr. Nobody Against Putin",
-    posterUrl: posterUrls["mr-nobody-against-putin"],
+    posterUrl: "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/3/2026/03/16135430/mr-nobody-against-putin-poster-scaled.jpg",
   },
   {
     category: "Best Casting",
